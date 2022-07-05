@@ -23,10 +23,13 @@ android {
 
 dependencies {
     implementation project(":library")
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.daimajia.easing:library:1.0.0@aar'
-    implementation 'com.daimajia.androidanimations:library:1.1.2@aar'
-    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation libs.androidx.recyclerview
+    implementation libs.androidx.cursoradapter
+    implementation(libs.daimajia.androidanimations) {
+        artifact {
+            type = "aar"
+        }
+    }
     // This dude gave a shoutout to you (daimajia) on his github page:
-    implementation 'jp.wasabeef:recyclerview-animators:1.0.3@aar'
+    implementation libs.wasabeef.recycleranimators
 }

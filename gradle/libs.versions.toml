@@ -1,0 +1,12 @@
+[versions]
+agp_version="4.4.2"
+
+[plugins]
+android-application= { id="com.android.application", version.ref="agp_version" }
+android-library= { id="com.android.library", version.ref="agp_version" }
+
+[libraries]
+androidx-recyclerview = "androidx.recyclerview:recyclerview:1.2.1"
+androidx-cursoradapter = "androidx.cursoradapter:cursoradapter:1.0.0"
+daimajia-androidanimations = "com.daimajia.androidanimations:library:2.4"
+wasabeef-recycleranimators = "jp.wasabeef:recyclerview-animators:4.0.1"

@@ -12,8 +12,8 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation libs.androidx.recyclerview
+    implementation libs.androidx.cursoradapter
 }
 
 // build a jar with source files

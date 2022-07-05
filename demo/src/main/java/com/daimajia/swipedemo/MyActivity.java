@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.daimajia.swipe.SwipeLayout;
-import com.nineoldandroids.view.ViewHelper;
 
 public class MyActivity extends Activity {
 
@@ -81,10 +80,10 @@ public class MyActivity extends Activity {
             @Override
             public void onReveal(View child, SwipeLayout.DragEdge edge, float fraction, int distance) {
                 View star = child.findViewById(R.id.star);
-                float d = child.getHeight() / 2 - star.getHeight() / 2;
-                ViewHelper.setTranslationY(star, d * fraction);
-                ViewHelper.setScaleX(star, fraction + 0.6f);
-                ViewHelper.setScaleY(star, fraction + 0.6f);
+                float d = child.getHeight() / 2f - star.getHeight() / 2f;
+                star.setTranslationY(d * fraction);
+                star.setScaleX(fraction + 0.6f);
+                star.setScaleY(fraction + 0.6f);
             }
         });
 
@@ -137,9 +136,9 @@ public class MyActivity extends Activity {
             public void onReveal(View child, SwipeLayout.DragEdge edge, float fraction, int distance) {
                 View star = child.findViewById(R.id.star);
                 float d = child.getHeight() / 2 - star.getHeight() / 2;
-                ViewHelper.setTranslationY(star, d * fraction);
-                ViewHelper.setScaleX(star, fraction + 0.6f);
-                ViewHelper.setScaleY(star, fraction + 0.6f);
+                star.setTranslationY(d * fraction);
+                star.setScaleX(fraction + 0.6f);
+                star.setScaleY(fraction + 0.6f);
                 int c = (Integer) evaluate(fraction, Color.parseColor("#dddddd"), Color.parseColor("#4C535B"));
                 child.setBackgroundColor(c);
             }
