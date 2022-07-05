@@ -1,6 +1,8 @@
 package com.daimajia.swipedemo.adapter;
 
 import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,13 +57,13 @@ public class RecyclerViewAdapter extends RecyclerSwipeAdapter<RecyclerViewAdapte
     }
 
     @Override
-    public SimpleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SimpleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
         return new SimpleViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final SimpleViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull final SimpleViewHolder viewHolder, int position) {
         String item = mDataset.get(position);
         viewHolder.swipeLayout.setShowMode(SwipeLayout.ShowMode.LayDown);
         viewHolder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {

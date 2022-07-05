@@ -1,5 +1,6 @@
 package com.daimajia.swipe.adapters;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
 
@@ -16,10 +17,10 @@ public abstract class RecyclerSwipeAdapter<VH extends RecyclerView.ViewHolder> e
     public SwipeItemMangerImpl mItemManger = new SwipeItemMangerImpl(this);
 
     @Override
-    public abstract VH onCreateViewHolder(ViewGroup parent, int viewType);
+    public abstract VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType);
 
     @Override
-    public abstract void onBindViewHolder(VH viewHolder, final int position);
+    public abstract void onBindViewHolder(@NonNull VH viewHolder, final int position);
 
     @Override
     public void notifyDatasetChanged() {
