@@ -1,8 +1,12 @@
 package com.daimajia.swipe.adapters;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.AsyncDifferConfig;
+import androidx.recyclerview.widget.DiffUtil;
+import androidx.recyclerview.widget.ListAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.implments.SwipeItemMangerImpl;
@@ -12,16 +16,24 @@ import com.daimajia.swipe.util.Attributes;
 
 import java.util.List;
 
-public abstract class RecyclerSwipeAdapter<VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> implements SwipeItemMangerInterface, SwipeAdapterInterface {
+public abstract class RecyclerSwipeListAdapter<T, VH extends RecyclerView.ViewHolder> extends ListAdapter<T, VH> implements SwipeItemMangerInterface, SwipeAdapterInterface {
 
     public SwipeItemMangerImpl mItemManger = new SwipeItemMangerImpl(this);
 
-    @Override
+    protected RecyclerSwipeListAdapter(@NonNull DiffUtil.ItemCallback<T> diffCallback) {
+        super(diffCallback);
+    }
+
+    protected RecyclerSwipeListAdapter(@NonNull AsyncDifferConfig<T> config) {
+        super(config);
+    }
+
     @NonNull
+    @Override
     public abstract VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType);
 
     @Override
-    public abstract void onBindViewHolder(@NonNull VH viewHolder, final int position);
+    public abstract void onBindViewHolder(@NonNull VH holder, int position);
 
     @Override
     public void notifyDatasetChanged() {
